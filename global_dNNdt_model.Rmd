@@ -10,9 +10,25 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-# set dataframe
-nsample = 100
-education_data = rnorm(mean=3, sd=2, n=nsample)
 
-# Don't really know what i'm doing... HALP
+```
+
+
+```{r}
+# generate test data
+
+nsample = 100
+education_data = rnorm(mean=6.2, sd=2.8, n=nsample)
+kcal_data = rnorm(mean=5050, sd=3151, n=nsample)
+hiv_data = rnorm(mean=0.49, sd=1.86, n=nsample)
+gdp_data = rnorm(mean=5900, sd=5800, n=nsample)
+
+# create data frame
+
+results_df <- data.frame(education_data = education_data, 
+                         kcal_data = kcal_data, 
+                         hiv_data = hiv_data, 
+                         gdp_data = gdp_data,
+                         global_dnndt = NA)
+
 ```
