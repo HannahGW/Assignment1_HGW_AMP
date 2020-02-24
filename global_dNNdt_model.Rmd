@@ -81,11 +81,15 @@ ggplot(test_dataframe2, aes(x = education_data2, y= global_dNNdt_predicted2)) +
   labs(title = "Effect of education levels on global per capita growth rate (dN/Ndt)", x = "Global Average Years of Education", y = "Predicted Global dN/Ndt")
 
 ggplot(test_dataframe2, aes(x = education_data2, y= global_dNNdt_predicted2)) +
-  geom_boxplot() 
+  geom_boxplot() + 
+  labs(title = "Boxplot of education levels on global per capita growth rate (dN/Ndt)", x = "Global Average Years of Education", y = "Predicted Global dN/Ndt")
 
 ```
 
 Graph 2: Effect of education level on global per capita growth rate (dN/Ndt)
 The above graph shows the relationship between the years of education completed and the global per capita growth rate. The lower the amount of education completed, the higher the per capita growth rate. When more years of education are completed, the lower the per capita growth rate.
+
+Graph 3: Boxplot of education levels on global per capita growth rate (dN/Ndt)
+The above graph shows a median of approximately 0.011 for dN/Ndt globally.
 
 
