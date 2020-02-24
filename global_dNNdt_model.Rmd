@@ -6,7 +6,10 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE)
 ```
 
 ```{r}
@@ -16,7 +19,6 @@ library(tidyverse)
 
 
 ```{r}
-
 # generate test data (1/2)
 nsample = 500
 education_data1 = rnorm(mean=6.2, sd=2.8, n=nsample)
@@ -33,7 +35,7 @@ test_dataframe1 <- data.frame(education_data1 = education_data1,
                          global_dNNdt_predicted1 = NA) 
 
 # predict global dNNdt using function and test data
-test_dataframe1$global_dNNdt_predicted1 <- global_dNNdt2(education_variable = education_data1, 
+test_dataframe1$global_dNNdt_predicted1 <- global_dNNdt(education_variable = education_data1, 
                                                         kcal_variable = kcal_data1, 
                                                         hiv_variable = hiv_data1, 
                                                         gdp_variable = gdp_data1)
@@ -41,11 +43,12 @@ test_dataframe1$global_dNNdt_predicted1 <- global_dNNdt2(education_variable = ed
 
 # Create a graph 
 
-ggplot(test_dataframe1, aes(x = education_data1, y= global_dNNdt_predicted1)) +
+ggplot(test_dataframe1, aes(x = education_data1, y = global_dNNdt_predicted1)) +
   geom_point() +
-  labs(x = "Global Average Years of Education", y = "Predicted Global dN/Ndt")
+  labs(title = "Effect of education levels on global per capita growth rate (dN/Ndt)", x = "Global Average Years of Education", y = "Predicted Global dN/Ndt")
 ```
---Interpret results from graph here--
+Graph 1: Effect of education level on global per capita growth rate (dN/Ndt)
+The above graph shows the relationship between the years of education completed and the global per capita growth rate. The lower the amount of education completed, the higher the per capita growth rate. When more years of education are completed, the lower the per capita growth rate. 
 
 
 ```{r}
@@ -75,10 +78,14 @@ test_dataframe2$global_dNNdt_predicted2 <- global_dNNdt(education_variable = edu
 
 ggplot(test_dataframe2, aes(x = education_data2, y= global_dNNdt_predicted2)) +
   geom_point() +
-  labs(x = "Global Average Years of Education", y = "Predicted Global dN/Ndt")
+  labs(title = "Effect of education levels on global per capita growth rate (dN/Ndt)", x = "Global Average Years of Education", y = "Predicted Global dN/Ndt")
 
 ggplot(test_dataframe2, aes(x = education_data2, y= global_dNNdt_predicted2)) +
   geom_boxplot() 
 
 ```
+
+Graph 2: Effect of education level on global per capita growth rate (dN/Ndt)
+The above graph shows the relationship between the years of education completed and the global per capita growth rate. The lower the amount of education completed, the higher the per capita growth rate. When more years of education are completed, the lower the per capita growth rate.
+
 
