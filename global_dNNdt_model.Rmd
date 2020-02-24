@@ -10,12 +10,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-
+library(dplyr)
+library(tidyverse)
 ```
 
 
 ```{r}
-# generate test data
+# generate test data (1/2)
 
 nsample = 100
 education_data = rnorm(mean=6.2, sd=2.8, n=nsample)
@@ -23,12 +24,28 @@ kcal_data = rnorm(mean=5050, sd=3151, n=nsample)
 hiv_data = rnorm(mean=0.49, sd=1.86, n=nsample)
 gdp_data = rnorm(mean=5900, sd=5800, n=nsample)
 
-# create data frame
+# generate test data (2/2)
 
-results_df <- data.frame(education_data = education_data, 
-                         kcal_data = kcal_data, 
-                         hiv_data = hiv_data, 
-                         gdp_data = gdp_data,
-                         global_dnndt = NA)
 
+# create data frame 
+
+results_df <- data.frame(education_variable = education_data, 
+                         kcal_variable = kcal_data, 
+                         hiv_variable = hiv_data, 
+                         gdp_variable = gdp_data,
+                         global_dNNdt = NA) # Idk if this is right but I changed it from being "education_data = education_data" to "education_variable = education_data", wasn't sure why the original function variables were not included? But you know better than me so I can change it back if this is wrong. 
+
+head(results_df)
+
+# results_df$global_dNNt)
+
+# Create a graph 
+
+ggplot(results_df, aes(x = education_data, y= gdp_data)) +
+  geom_point() +
+  labs(x = "global years of average education completed", y = "global GDP ($)")
 ```
+--Interpret results from graph here--
+
+
+
