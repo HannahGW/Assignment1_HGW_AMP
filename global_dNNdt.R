@@ -15,7 +15,7 @@
 library(tidyverse)
 library(dplyr)
 
-global_dNNdt = function(education_variable, kcal_variable, hiv_variable, gdp_variable, intercept=0.014, education=-0.001104, kcal=-0.000000004785, hiv=0.0005353, gdp =0.0000001285) {
+global_dNNdt2 = function(education_variable, kcal_variable, hiv_variable, gdp_variable, intercept=0.014, education=-0.001104, kcal=-0.000000004785, hiv=0.0005353, gdp =0.0000001285) {
   # set parameters for education and kilocalories
   education_variable = ifelse((education_variable < 0), return("education_variable cannot be less than zero"), education_variable) 
   if (education_variable > 30) return("education_variable cannot be > 30")
@@ -28,4 +28,4 @@ global_dNNdt = function(education_variable, kcal_variable, hiv_variable, gdp_var
   return(result)
 } 
 
-global_dNNdt(10, 12000, 5, 7000)
+global_dNNdt2(10, 12000, 5, 7000)

@@ -47,5 +47,5 @@ global_dNNdt = function(education_variable, kcal_variable, hiv_variable, gdp_var
 } 
 
 ## test function ------------------------------------------------------------------------------------
-global_dNNdt(0, 12000, 10, 10000)
+#global_dNNdt(-1, 11404.616, 10.3004753, 570.7973)
 
